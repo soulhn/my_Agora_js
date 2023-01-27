@@ -11,12 +11,32 @@ body {
   justify-content: center;
   align-items: center;
 }
-
-.discussions__container {
-  border: 3px solid blue;
+h1 {
+  text-align: center;
 }
 
+/* 폼 영역 */
+.form {
+  border: 1px solid brown;
+  padding: 0.5rem;
+}
+
+.form__input--name,
+.form__input--title,
+.form__textbox {
+  display: flex;
+  flex-direction: column;
+}
+
+.test {
+  border: 1px solid red;
+}
+/* 폼 영역 끝 */
+
+/* 컨텐츠 영역 */
 li.discussion__container {
+  border: 1px solid brown;
+  border-radius: 7px;
   display: flex;
   justify-content: space-between;
   list-style: none;
@@ -24,7 +44,6 @@ li.discussion__container {
 }
 
 div.discussion__content {
-  border: 1px solid black;
   display: flex;
   justify-content: space-between;
   /* flex 항목 column 정렬  */
@@ -51,5 +70,13 @@ div.discussion__answered {
 }
 
 h2.discussion__title {
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
+
+.discussion__information {
+  text-align: right;
+  padding: 0.2rem;
+  float: right;
+}
+
+/* 컨텐츠 영역 끝 */

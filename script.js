@@ -39,7 +39,7 @@ const convertToDiscussion = (obj) => {
   checkAnswer.textContent = obj.answer ? "☑" : "X";
   discussionAnswered.append(checkAnswer);
 
-  // 작성 코드
+  //추가한 코드는 여기까지
   li.append(avatarWrapper, discussionContent, discussionAnswered);
   return li;
 };
