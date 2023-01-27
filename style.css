@@ -29,6 +29,10 @@ div.discussion__content {
   justify-content: space-between;
   /* flex 항목 column 정렬  */
   flex-direction: column;
+  /* flex-grow, flex-shrink, flex-basis */
+  flex: 1 0 0;
+  /* rem : root 요소의 글자와 상대적인 크기 */
+  padding: 0.5rem;
 }
 
 div.discussion__avatar--wrapper {
@@ -44,4 +48,8 @@ div.discussion__avatar--wrapper {
 div.discussion__answered {
   display: flex;
   align-items: center;
+}
+
+h2.discussion__title {
+  font-size: 1rem;
 }
