@@ -34,10 +34,17 @@ const convertToDiscussion = (obj) => {
   information.textContent = `${obj.author} / ${new Date(obj.createdAt).toLocaleString("ko-kr")}`;
   discussionContent.append(title, information);
 
-  //답변 체크
-  const checkAnswer = document.createElement("p");
-  checkAnswer.textContent = obj.answer ? "☑" : "X";
-  discussionAnswered.append(checkAnswer);
+  // 답변 모달창
+  const answerModal = document.createElement("button");
+
+  // 답변이 있는 지 처리
+  if (obj.answer) {
+    answerModal.textContent = "해결";
+  } else {
+    answerModal.setAttribute("disabled", true);
+    answerModal.textContent = "대기";
+  }
+  discussionAnswered.append(answerModal);
 
   //추가한 코드는 여기까지
   li.append(avatarWrapper, discussionContent, discussionAnswered);
@@ -46,6 +53,13 @@ const convertToDiscussion = (obj) => {
 
 // agoraStatesDiscussions 배열의 모든 데이터를 화면에 렌더링하는 함수입니다.
 const render = (element) => {
+  // 로컬 스토리지에 이미 데이터 있는 경우 렌더링
+  if (localStorage.getItem("agoraData") !== null) {
+    const parseAgoraSaveData = JSON.parse(localStorage.getItem("agoraData"));
+    //입력한 데이터가 최상단으로 가도록 배치 !원본 데이터 let으로 변경
+    agoraStatesDiscussions = [...parseAgoraSaveData, ...agoraStatesDiscussions];
+  }
+
   for (let i = 0; i < agoraStatesDiscussions.length; i += 1) {
     element.append(convertToDiscussion(agoraStatesDiscussions[i]));
   }
